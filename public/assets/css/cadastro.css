@@ -1,0 +1,495 @@
+/* Variáveis Root */
+:root {
+    --cor-principal: #ff6f00;
+    --cor-secundaria: #ff8c00;
+    --cor-texto-principal: #333;
+    --cor-texto-secundario: #555;
+    --cor-favorito: #ff6b6b;
+    --cor-erro: #d32f2f;
+    --cor-sucesso: #2e7d32;
+    --cor-aviso: #0288d1;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --transition-tempo: 0.3s;
+    --padding-geral: 1.5rem;
+    --min-width-card: 280px;
+    --font-principal: 'Inter', Arial, sans-serif;
+}
+
+/* Cadastro de receita */
+#cadastro {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: var(--padding-geral);
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid #f5f5f5;
+    display: grid;
+    gap: 1.5rem;
+    font-family: var(--font-principal);
+}
+
+#cadastro:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
+}
+
+#cadastro h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#cadastro h2 i {
+    color: var(--cor-principal);
+    font-size: 1.5rem;
+}
+
+/* Campos de entrada */
+.campo {
+    padding: 0.75rem;
+    background-color: #fff;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #e8e8e8;
+    transition: border-color var(--transition-tempo), box-shadow var(--transition-tempo);
+}
+
+.campo:hover {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.campo h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cor-texto-principal);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: capitalize;
+}
+
+.campo h4 i {
+    color: var(--cor-principal);
+    font-size: 1rem;
+    transition: color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+.campo h4:hover i {
+    color: var(--cor-secundaria);
+    transform: scale(1.1);
+}
+
+.campo select,
+.campo input[type="text"],
+.campo textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid #dcdcdc;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    color: var(--cor-texto-principal);
+    background-color: #fff;
+    transition: border-color var(--transition-tempo), box-shadow var(--transition-tempo);
+}
+
+.campo select:focus,
+.campo input[type="text"]:focus,
+.campo textarea:focus {
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 8px rgba(255, 111, 0, 0.2);
+    background-color: #fffefc;
+    outline: none;
+}
+
+.campo select:invalid {
+    color: #999;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #bbb;
+    opacity: 0.7;
+}
+
+.campo textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.campo.invalid select,
+.campo.invalid input,
+.campo.invalid textarea {
+    border-color: var(--cor-erro);
+    box-shadow: 0 0 8px rgba(211, 47, 47, 0.2);
+}
+
+.erro {
+    color: var(--cor-erro);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    min-height: 1.2rem;
+    display: block;
+    opacity: 0;
+    transition: opacity var(--transition-tempo);
+}
+
+.erro[style*="block"] {
+    opacity: 1;
+}
+
+.label-imagem-principal,
+.label-imagens-complementares {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border: 2px dashed #dcdcdc;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    background-color: #fffefc;
+    transition: border-color var(--transition-tempo), background-color var(--transition-tempo);
+}
+
+.label-imagem-principal:hover,
+.label-imagens-complementares:hover {
+    border-color: var(--cor-principal);
+    background-color: #fff5e0;
+}
+
+.label-imagem-principal:focus-within,
+.label-imagens-complementares:focus-within {
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 10px rgba(255, 111, 0, 0.3);
+}
+
+.label-imagem-principal span,
+.label-imagens-complementares span {
+    color: var(--cor-texto-secundario);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.label-imagem-principal i,
+.label-imagens-complementares i {
+    color: var(--cor-principal);
+    font-size: 1.2rem;
+}
+
+.campo input[type="file"] {
+    display: none;
+}
+
+.preview-principal,
+.preview-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    background-color: #fafafa;
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #f0f0f0;
+}
+
+.preview-principal img,
+.preview-container img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #e8e8e8;
+    transition: transform var(--transition-tempo), box-shadow var(--transition-tempo);
+}
+
+.preview-principal img:hover,
+.preview-container img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow);
+}
+
+.badge-principal {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.adicionar-mais {
+    margin-top: 1rem;
+    padding: 0.6rem 1.25rem;
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+.adicionar-mais:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+.adicionar-mais:focus {
+    outline: 3px solid rgba(255, 140, 0, 0.3);
+}
+
+.adicionar-mais i {
+    font-size: 1rem;
+}
+
+/* Botões de ação */
+.button-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: #fafafa;
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #f0f0f0;
+}
+
+.button-group button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+#cancelar {
+    background-color: var(--cor-erro);
+    color: white;
+}
+
+#cancelar:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+}
+
+#limpar {
+    background-color: var(--cor-aviso);
+    color: white;
+}
+
+#limpar:hover {
+    background-color: #0277bd;
+    transform: scale(1.05);
+}
+
+#cadastrar {
+    background-color: var(--cor-sucesso);
+    color: white;
+}
+
+#cadastrar:hover {
+    background-color: #27632a;
+    transform: scale(1.05);
+}
+
+.button-group button:focus {
+    outline: 3px solid rgba(255, 140, 0, 0.3);
+}
+
+.button-group button i {
+    font-size: 0.9rem;
+}
+
+/* Tabela de receitas */
+.tabela-container {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: var(--padding-geral);
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid #f5f5f5;
+    overflow-x: auto;
+}
+
+.tabela-container:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.tabela-container h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tabela-container h3 i {
+    color: var(--cor-principal);
+    font-size: 1.5rem;
+}
+
+.tabela-receitas {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabela-receitas th,
+.tabela-receitas td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+    vertical-align: middle;
+    transition: background-color var(--transition-tempo);
+}
+
+.tabela-receitas th:first-child,
+.tabela-receitas td:first-child {
+    border-left: none;
+}
+
+.tabela-receitas th {
+    background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-receitas td {
+    font-size: 0.85rem;
+    color: var(--cor-texto-principal);
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tabela-receitas td[title] {
+    cursor: help;
+}
+
+.tabela-receitas tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.tabela-receitas tr:hover {
+    background-color: #fef8e8;
+    cursor: pointer;
+}
+
+.tabela-receitas th:first-child,
+.tabela-receitas td:first-child {
+    width: 80px;
+    text-align: center;
+}
+
+.tabela-receitas th:nth-child(2),
+.tabela-receitas td:nth-child(2) {
+    width: 130px;
+}
+
+.tabela-receitas th:nth-child(6),
+.tabela-receitas td:nth-child(6) {
+    width: 140px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.tabela-receitas img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #e8e8e8;
+    transition: transform var(--transition-tempo);
+}
+
+.tabela-receitas img:hover {
+    transform: scale(1.05);
+}
+
+/* Botões em geral */
+.tabela-receitas .acao-btn {
+    padding: 0.5rem 0.9rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-principal);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+.tabela-receitas .acao-btn i {
+    font-size: 0.85rem;
+}
+
+.tabela-receitas .acao-btn.editar {
+    background-color: var(--cor-principal);
+    color: #fff;
+}
+
+.tabela-receitas .acao-btn.editar:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.03);
+}
+
+.tabela-receitas .acao-btn.excluir {
+    background-color: var(--cor-erro);
+    color: #fff;
+}
+
+.tabela-receitas .acao-btn.excluir:hover {
+    background-color: #c62828;
+    transform: scale(1.03);
+}
+
+.tabela-receitas .acao-btn:focus {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}

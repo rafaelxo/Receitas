@@ -1,0 +1,459 @@
+/* Variáveis Root */
+:root {
+    --cor-principal: #ff6f00;
+    --cor-secundaria: #ff8c00;
+    --cor-texto-principal: #333;
+    --cor-texto-secundario: #555;
+    --cor-favorito: #ff6b6b;
+    --cor-erro: #d32f2f;
+    --cor-sucesso: #2e7d32;
+    --cor-aviso: #0288d1;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --transition-tempo: 0.3s;
+    --padding-geral: 1.5rem;
+    --min-width-card: 280px;
+    --font-principal: 'Inter', Arial, sans-serif;
+}
+
+/* Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f9f9;
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--cor-principal);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: .1rem;
+    position: relative;
+    transition: background-color var(--transition-tempo);
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+/* Rodapé */
+footer {
+    padding: .5rem;
+    background-color: var(--cor-principal);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    margin: 10px;
+    margin-top: 10px;
+}
+
+footer h4 {
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+footer p {
+    font-size: .9rem;
+    color: #f0f0f0;
+    line-height: 1.5;
+}
+
+/* Fotos */
+.imagem-perfil {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.icone {
+    color: #fff;
+    font-size: 1.25rem;
+    transition: color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+.icone:hover {
+    color: var(--cor-secundaria);
+    transform: scale(1.1);
+}
+
+/* Logo */
+.logo-container {
+    padding: 1px;
+    text-align: center;
+}
+
+.logo {
+    max-height: 100px;
+    max-width: 100%;
+}
+
+/* Títulos e parágrafos */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 10px;
+    text-align: center;
+    transition: font-size var(--transition-tempo), color var(--transition-tempo);
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    transition: font-size var(--transition-tempo), color var(--transition-tempo);
+}
+
+/* Navegação */
+.nav-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 1.875rem;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.nav-link:focus {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}
+
+.navegacao {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 1px;
+    list-style: none;
+}
+
+/* Barra e botão de pesquisa */
+.pesquisa {
+    max-width: 600px;
+    padding: 10px 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.pesquisa .input-group {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pesquisa input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 6.25rem;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: .6rem;
+}
+
+.pesquisa button {
+    padding: .5rem .75rem;
+    min-width: 3.125rem;
+    background-color: #ddd;
+    color: var(--cor-texto-principal);
+    border: none;
+    border-radius: 5px;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+    cursor: pointer;
+}
+
+.pesquisa button:hover {
+    background-color: var(--cor-secundaria);
+    color: white;
+    transform: scale(1.05);
+}
+
+.pesquisa button:focus {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}
+
+/* Estruturação principal */
+main {
+    padding: var(--padding-geral);
+    flex-grow: 1;
+    width: 100%;
+}
+
+.receita {
+    position: relative;
+    width: 100%;
+}
+
+.receita-link {
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card [data-receita] {
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    transition: opacity var(--transition-tempo);
+}
+
+.card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-titulo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: .75rem;
+    line-height: 1.3;
+}
+
+.card-texto {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--cor-texto-secundario);
+    line-height: 1.5;
+}
+
+/* Botão de favorito */
+.favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    border: 2px solid var(--cor-favorito);
+    color: var(--cor-favorito);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-tempo);
+}
+
+.favorito:hover,
+.favorito.ativo {
+    background: var(--cor-favorito);
+    color: white;
+    transform: scale(1.1);
+}
+
+.favorito.favoritado {
+    background: var(--cor-favorito);
+    color: white;
+}
+
+.favorito:focus {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}
+
+/* Menu de opções */
+#menuToggle {
+    display: none;
+}
+
+.menu-icone {
+    display: none;
+    color: white;
+    font-size: 1.8rem;
+    position: absolute;
+    top: -165px;
+    right: 1.25rem;
+    cursor: pointer;
+    z-index: 999;
+    padding: 10px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-icone:hover {
+    transform: rotate(180deg);
+    color: var(--cor-secundaria);
+}
+
+/* Grid das receitas */
+#receitas,
+#receitas-categoria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-width-card), 1fr));
+    gap: 1.75rem;
+    padding: 1rem;
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Slider */
+#conteudo-slide {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+.carousel {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.slide-card {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.card-body {
+    padding-bottom: 25px;
+}
+
+.carousel-item .card-img-top {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 111, 0, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+}
+
+.carousel-control-prev {
+    left: 15px;
+}
+
+.carousel-control-next {
+    right: 15px;
+}
+
+.carousel-indicators {
+    bottom: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 25px;
+    height: 3px;
+    background: #ff8c00;
+    border: none;
+    border-radius: 5px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 1;
+}
+
+.carousel-indicators button {
+    width: 25px;
+    height: 3px;
+    background: var(--cor-secundaria);
+    border: none;
+    border-radius: 5px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    width: 35px;
+    background: var(--cor-principal);
+}
+
+/* Botão logout */
+.header-controls {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.login-logout-wrapper {
+    position: absolute;
+    top: -156px;
+    left: 0.5rem;
+    z-index: 999;
+}
+
+.btn-login-logout {
+    background-color: var(--cor-principal);
+    color: white;
+    border: 2px solid white;
+    padding: 2px 6px;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-login-logout:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+.btn-login-logout i {
+    font-size: 1.2rem;
+}

@@ -1,0 +1,167 @@
+/* Variáveis Root */
+:root {
+    --cor-principal: #ff6f00;
+    --cor-secundaria: #ff8c00;
+    --cor-texto-principal: #333;
+    --cor-texto-secundario: #555;
+    --cor-favorito: #ff6b6b;
+    --cor-erro: #d32f2f;
+    --cor-sucesso: #2e7d32;
+    --cor-aviso: #0288d1;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --transition-tempo: 0.3s;
+    --padding-geral: 1.5rem;
+    --min-width-card: 280px;
+    --font-principal: 'Inter', Arial, sans-serif;
+}
+
+/* Detalhes das receitas */
+#conteudo-receita {
+    display: block;
+    padding: var(--padding-geral);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.receita-detalhe-container {
+    width: 100%;
+}
+
+.receita-detalhe-card {
+    width: 100%;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.receita-detalhe-card .card-img-top {
+    width: 100% !important;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.receita-detalhe-corpo {
+    padding: 2rem;
+}
+
+/* Conteúdo da receita */
+#conteudo-receita .card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 1rem;
+}
+
+#conteudo-receita .card-texto {
+    font-size: 1.1rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 1.5rem;
+}
+
+#conteudo-receita h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-texto-principal);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#conteudo-receita ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#conteudo-receita ul li {
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    line-height: 1.8;
+}
+
+#conteudo-receita .btn {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+}
+
+#conteudo-receita .btn:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+/* Imagens complementares */
+.imagens-complementares {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: .75rem;
+    padding: var(--padding-geral);
+}
+
+.imagem-complementar {
+    width: 33.33%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-tempo);
+    cursor: pointer;
+}
+
+.imagem-complementar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.imagem-complementar:focus {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}
+
+
+/* Botão voltar */
+#voltar {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-principal);
+    background-color: var(--cor-principal);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color var(--transition-tempo), transform var(--transition-tempo);
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+#voltar:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.03);
+}
+
+#voltar:focus {
+    outline: 2px solid var(--cor-secundaria);
+    outline-offset: 2px;
+}
+
+#voltar i {
+    font-size: 0.85rem;
+}

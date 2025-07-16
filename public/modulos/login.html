@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore uma coleção de receitas deliciosas no Diretório de Receitas, com pratos para todas as ocasiões.">
+  <meta property="og:title" content="Diretório de Receitas">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://b97206af-df31-48e8-bc39-a7ed41d218c0-00-1hblmvl3ysjxd.spock.replit.dev/">
+  <meta property="og:image" content="https://b97206af-df31-48e8-bc39-a7ed41d218c0-00-1hblmvl3ysjxd.spock.replit.dev/assets/img/banner-logo.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/estrutura.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="../assets/scripts/login.js"></script>
+
+  <title>Login</title>
+
+  <style>
+    :root {
+      --cor-principal: #ff6f00;
+      --cor-secundaria: #ff8c00;
+      --cor-texto-principal: #333;
+      --cor-texto-secundario: #555;
+      --cor-favorito: #ff6b6b;
+      --cor-erro: #d32f2f;
+      --cor-sucesso: #2e7d32;
+      --cor-aviso: #0288d1;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+      --border-radius: 12px;
+      --border-radius-sm: 8px;
+      --transition-tempo: 0.3s;
+      --padding-geral: 1.5rem;
+      --min-width-card: 280px;
+      --font-principal: 'Inter', Arial, sans-serif;
+      --gradient-bg: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+      --light-bg: #fff4e6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-principal);
+    }
+
+    body {
+      background: linear-gradient(100deg, var(--light-bg), #ffe0b2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--padding-geral);
+      color: var(--cor-texto-principal);
+    }
+
+    #login {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    #login-box {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: all var(--transition-tempo) ease;
+      padding: var(--padding-geral);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      min-width: var(--min-width-card);
+    }
+
+    #login-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    #login-form h3 {
+      color: var(--cor-principal);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+      text-align: center;
+      font-size: 1.75rem;
+    }
+
+    #login-form h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-bg);
+      border-radius: var(--border-radius-sm);
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: var(--cor-texto-principal);
+      margin-bottom: 0.75rem;
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      border: 1px solid #e0e0e0;
+      border-radius: var(--border-radius-sm);
+      background-color: var(--light-bg);
+      transition: all var(--transition-tempo) ease;
+      font-size: 0.95rem;
+      color: var(--cor-texto-principal);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--cor-principal);
+      box-shadow: 0 0 0 3px rgba(255, 111, 0, 0.15);
+      background-color: white;
+    }
+
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--border-radius-sm);
+      font-weight: 500;
+      transition: all var(--transition-tempo) ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background-color: var(--cor-principal);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--cor-secundaria);
+      box-shadow: 0 4px 12px rgba(255, 111, 0, 0.25);
+    }
+
+    .btn-secondary {
+      background-color: var(--cor-texto-secundario);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #444;
+    }
+
+    .btn-info {
+      background-color: var(--cor-aviso);
+      color: white;
+    }
+
+    .btn-info:hover {
+      background-color: #0277bd;
+    }
+
+    .modal-content {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      border: none;
+      box-shadow: var(--box-shadow-hover);
+    }
+
+    .modal-header {
+      background: var(--gradient-bg);
+      color: white;
+      border-bottom: none;
+      padding: var(--padding-geral);
+    }
+
+    .modal-title {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .modal-body {
+      padding: var(--padding-geral);
+    }
+
+    .modal-footer {
+      border-top: 1px solid #e9ecef;
+      padding: 1.25rem var(--padding-geral);
+    }
+
+    .mb-3 {
+      margin-bottom: var(--padding-geral) !important;
+    }
+
+    .d-flex.justify-content-center.gap-2 {
+      gap: 1rem !important;
+      margin-top: 2rem !important;
+    }
+
+    @media (max-width: 768px) {
+      #login-column {
+        padding: 0 1rem;
+      }
+
+      #login-box {
+        padding: 1.25rem;
+      }
+
+      .modal-dialog {
+        margin: 0.5rem;
+      }
+
+      #login-form h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .password-toggle {
+      position: relative;
+    }
+
+    .password-toggle-icon {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: var(--cor-texto-secundario);
+    }
+
+    .password-toggle-icon:hover {
+      color: var(--cor-principal);
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius-sm);
+      color: white;
+      font-size: 0.9rem;
+      z-index: 1050;
+      opacity: 0;
+      transition: opacity var(--transition-tempo) ease;
+    }
+
+    .notification.show {
+      opacity: 1;
+    }
+
+    .notification.success {
+      background-color: var(--cor-sucesso);
+    }
+
+    .notification.error {
+      background-color: var(--cor-erro);
+    }
+
+    .error-message {
+      color: var(--cor-erro);
+      font-size: 0.85rem;
+    }
+
+    .success-message {
+      color: var(--cor-sucesso);
+      font-size: 0.85rem;
+    }
+
+    .loading .btn {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid white;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="notification-container"></div>
+
+  <div id="login">
+    <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+          <div id="login-box" class="p-4">
+            <form id="login-form" class="form" method="post">
+              <h3 class="text-center mb-4">Identificação de Usuário</h3>
+              <div class="mb-3">
+                <label for="username" class="form-label">Login</label>
+                <input type="text" name="username" id="username" class="form-control" required>
+                <span id="login-error" class="error-message"></span>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+                <span id="senha-error" class="error-message"></span>
+              </div>
+              <div class="d-flex justify-content-center gap-2 mt-3">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Registrar</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Novo Usuário</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="register-form" class="form">
+            <div class="mb-3">
+              <label for="txt_login" class="form-label">Usuário</label>
+              <input type="text" name="txt_login" id="txt_login" class="form-control" required>
+              <span id="txt_login-error" class="error-message"></span>
+            </div>
+            <div class="mb-3">
+              <label for="txt_nome" class="form-label">Nome completo</label>
+              <input type="text" name="txt_nome" id="txt_nome" class="form-control" required>
+              <span id="txt_nome-error" class="error-message"></span>
+            </div>
+            <div class="mb-3">
+              <label for="txt_email" class="form-label">Email</label>
+              <input type="email" name="txt_email" id="txt_email" class="form-control" required>
+              <span id="txt_email-error" class="error-message"></span>
+            </div>
+            <div class="mb-3">
+              <label for="txt_senha" class="form-label">Senha</label>
+              <input type="password" name="txt_senha" id="txt_senha" class="form-control" required>
+              <span id="txt_senha-error" class="error-message"></span>
+            </div>
+            <div class="mb-3">
+              <label for="txt_senha2" class="form-label">Confirmação de Senha</label>
+              <input type="password" name="txt_senha2" id="txt_senha2" class="form-control" required>
+              <span id="txt_senha2-error" class="error-message"></span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" id="btn_salvar" class="btn btn-success text-white">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function processaFormLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const loginError = document.getElementById('login-error');
+      const senhaError = document.getElementById('senha-error');
+      const loginButton = document.querySelector('#login-form .btn-primary');
+
+      loginError.textContent = "";
+      senhaError.textContent = "";
+      loginButton.classList.add('loading');
+
+      const resultadoLogin = loginUser(username, password);
+      loginButton.classList.remove('loading');
+
+      if (resultadoLogin.success) {
+        window.location.href = RETURN_URL;
+      } else {
+        if (resultadoLogin.message.includes("login")) {
+          loginError.textContent = resultadoLogin.message;
+        } else if (resultadoLogin.message.includes("senha")) {
+          senhaError.textContent = resultadoLogin.message;
+        } else {
+          displayMessage(resultadoLogin.message, 'error');
+        }
+      }
+    }
+
+    function salvaLogin(event) {
+      event.preventDefault();
+      const login = document.getElementById('txt_login').value;
+      const nome = document.getElementById('txt_nome').value;
+      const email = document.getElementById('txt_email').value;
+      const senha = document.getElementById('txt_senha').value;
+      const senha2 = document.getElementById('txt_senha2').value;
+      const salvarButton = document.getElementById('btn_salvar');
+
+      document.querySelectorAll('#register-form .error-message').forEach(span => span.textContent = "");
+      salvarButton.classList.add('loading');
+
+      addUser(nome, login, senha, email, senha2).then(resultado => {
+        salvarButton.classList.remove('loading');
+        if (resultado.success) {
+          displayMessage("Usuário registrado com sucesso! Proceda com o login.", 'success');
+          bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+          document.getElementById('register-form').reset();
+        } else {
+          const errorSpan = document.getElementById(`txt_${resultado.field}-error`);
+          if (errorSpan) {
+            errorSpan.textContent = resultado.message;
+          } else {
+            displayMessage(resultado.message, 'error');
+          }
+        }
+      });
+    }
+
+    document.getElementById('login-form').addEventListener('submit', processaFormLogin);
+    document.getElementById('btn_salvar').addEventListener('click', salvaLogin);
+  </script>
+</body>
+
+</html>
